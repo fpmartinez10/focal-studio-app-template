@@ -257,7 +257,7 @@ export default function App() {
                   </div>
                   <div className="settings-row" onClick={() => {
                     hapticTap();
-                    window.open("https://fpmartinez10.github.io/privacy-policy.html", "_system");
+                    window.open("https://focalstudio.github.io/privacy-policy.html", "_system");
                   }}>
                     <div className="settings-row-icon">🔒</div>
                     <div className="settings-row-body">

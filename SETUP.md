@@ -221,7 +221,7 @@ Then in Obsidian:
 
 ### 7.1 Add app card to index.html
 
-Open `/Users/fperezmartinez/Desktop/fpmartinez10.github.io/index.html` and find the `<!-- ADD NEW APP -->` comment. Add a card block:
+Open `/Users/fperezmartinez/Desktop/focalstudio.github.io/index.html` and find the `<!-- ADD NEW APP -->` comment. Add a card block:
 
 ```html
 <div class="app-card">
@@ -238,7 +238,7 @@ Open `/Users/fperezmartinez/Desktop/fpmartinez10.github.io/index.html` and find 
 
 ### 7.2 Add app card to apps.html
 
-Same card block in `/Users/fperezmartinez/Desktop/fpmartinez10.github.io/apps.html`.
+Same card block in `/Users/fperezmartinez/Desktop/focalstudio.github.io/apps.html`.
 
 ### 7.3 Create app page
 

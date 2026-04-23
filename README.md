@@ -99,7 +99,7 @@ cd android && ./gradlew assembleDebug
 
 ## Privacy policy
 
-[https://fpmartinez10.github.io/privacy-policy.html](https://fpmartinez10.github.io/privacy-policy.html)
+[https://focalstudio.github.io/privacy-policy.html](https://focalstudio.github.io/privacy-policy.html)
 
 ---
 

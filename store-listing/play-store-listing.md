@@ -48,7 +48,7 @@ KEY FEATURES
 
 PRIVACY FIRST
 [APP_NAME] does not collect personal data. Optional anonymous analytics help improve the app.
-Full privacy policy: https://fpmartinez10.github.io/privacy-policy.html
+Full privacy policy: https://focalstudio.github.io/privacy-policy.html
 
 PART OF FOCAL STUDIO
 A small collection of focused, no-nonsense apps. No ads. No subscriptions required.
@@ -130,7 +130,7 @@ IAP planned: `[None / [describe IAP]]`
 ## Privacy policy URL
 
 ```
-https://fpmartinez10.github.io/privacy-policy.html
+https://focalstudio.github.io/privacy-policy.html
 ```
 
 *(Already live — no action needed if template is set up correctly)*

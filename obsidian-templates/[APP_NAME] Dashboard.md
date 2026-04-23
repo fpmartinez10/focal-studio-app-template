@@ -32,7 +32,7 @@ version: 0.1.0
 - [ ] Analytics events firing (PostHog)
 - [ ] Crash reporting live (Sentry)
 - [ ] In-app rating prompt implemented
-- [ ] Privacy policy live at `https://fpmartinez10.github.io/privacy-policy.html`
+- [ ] Privacy policy live at `https://focalstudio.github.io/privacy-policy.html`
 - [ ] Store listing copy written
 - [ ] At least 1 real tester using the app
 
