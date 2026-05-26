@@ -19,7 +19,7 @@ export function setAnalyticsEnabled(value: boolean): void {
 
 export function track(event: string, props?: Record<string, unknown>): void {
   if (!enabled || !client) return;
-  client.capture(event, props);
+  client.capture(event, props as any); // PostHog's JsonType doesn't accept unknown
 }
 
 // Predefined events — add app-specific events below.

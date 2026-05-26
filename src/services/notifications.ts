@@ -51,7 +51,7 @@ export async function rescheduleNotifications(prefs: NotificationPrefs): Promise
     await Notifications.scheduleNotificationAsync({
       identifier: DAILY_REMINDER_ID,
       content: { title: copy.title, body: copy.body, sound: true },
-      trigger: { hour, minute, repeats: true, type: Notifications.SchedulableTriggerInputTypes.DAILY },
+      trigger: { hour, minute, type: Notifications.SchedulableTriggerInputTypes.DAILY },
     });
   }
 
@@ -61,7 +61,7 @@ export async function rescheduleNotifications(prefs: NotificationPrefs): Promise
     await Notifications.scheduleNotificationAsync({
       identifier: REENGAGEMENT_ID,
       content: { title: copy.title, body: copy.body, sound: true },
-      trigger: { hour, minute, repeats: true, type: Notifications.SchedulableTriggerInputTypes.DAILY },
+      trigger: { hour, minute, type: Notifications.SchedulableTriggerInputTypes.DAILY },
     });
   }
 }

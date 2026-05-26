@@ -5,6 +5,8 @@ import {
   ActivityIndicator,
   StyleSheet,
   type PressableProps,
+  type ViewStyle,
+  type StyleProp,
 } from "react-native";
 import { useTheme } from "../../hooks/useTheme";
 import { FontSize, FontWeight, Spacing, Radius } from "../../theme";
@@ -53,8 +55,8 @@ export function Button({
         styles.base,
         { backgroundColor: bg, height, borderRadius: Radius.md, opacity: pressed || disabled ? 0.6 : 1 },
         variant === "secondary" && { borderWidth: 1, borderColor: colors.border },
-        style,
-      ]}
+        style as ViewStyle,
+      ] as StyleProp<ViewStyle>}
       disabled={disabled || loading}
       {...props}
     >
