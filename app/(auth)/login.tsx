@@ -91,7 +91,7 @@ export default function LoginScreen() {
 
         <Pressable onPress={() => router.push("/(auth)/signup")} style={styles.footer}>
           <Text style={[styles.footerText, { color: colors.textSecondary }]}>
-            Don't have an account?{" "}
+            {"Don't have an account?"}{" "}
             <Text style={{ color: colors.accent, fontWeight: FontWeight.semibold }}>
               Sign up
             </Text>
