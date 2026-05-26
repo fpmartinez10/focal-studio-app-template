@@ -35,6 +35,7 @@ export async function saveString(key: string, value: string): Promise<void> {
 export async function loadNumber(key: string, fallback: number): Promise<number> {
   try {
     const raw = await AsyncStorage.getItem(key);
+    if (raw === null) return fallback;
     const n = Number(raw);
     return Number.isFinite(n) ? n : fallback;
   } catch {
