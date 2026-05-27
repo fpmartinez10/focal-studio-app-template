@@ -93,7 +93,10 @@
     "deny": [
       "Bash(git push --force:*)",
       "Bash(git push -f:*)",
+      "Bash(git push --force-with-lease:*)",
       "Bash(git push origin main:*)",
+      "Bash(npm install -g:*)",
+      "Bash(npm install --global:*)",
       "Bash(rm -rf:*)",
       "Bash(rm -r:*)",
       "Bash(sudo:*)"

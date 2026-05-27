@@ -1,7 +1,7 @@
 ---
 name: backend-integrator
 description: Wire third-party services (Supabase, RevenueCat, PostHog, expo-notifications, AsyncStorage) into this Expo template. Use for SDK integration, auth flows, payment plumbing, analytics, push-notification setup, and any "connect X service" task.
-tools: Read, Edit, Write, Grep, Glob, Bash, WebFetch, Skill, Agent
+tools: Read, Edit, Write, Grep, Glob, Bash, WebFetch, Skill
 model: sonnet
 ---
 
