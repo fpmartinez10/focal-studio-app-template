@@ -1,7 +1,7 @@
 ---
 name: release-manager
 description: Cut a release for this template. Runs the full release workflow from `.claude/CLAUDE.md` — branch off dev, bump version, update CHANGELOG and DEV_MODE_KEY, sync with main, open release→main PR and a follow-up release→dev backmerge PR. Use whenever the user says "cut a release", "ship version x.x.x", or "prepare release".
-tools: Read, Edit, Bash, Grep, Glob, Skill
+tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
 ---
 

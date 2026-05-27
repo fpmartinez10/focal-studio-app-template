@@ -397,6 +397,9 @@ When a subagent's report would exceed ~80 lines (full `qa-reviewer` audit, deep 
 
 The orchestrator reads from disk on demand. This keeps the orchestrator context lean during mixed/parallel runs and avoids context degradation when summaries get re-summarized across roundtrips. `.claude/scratch/` is gitignored.
 
+- **Filename timestamp:** generate with `date +%Y%m%d-%H%M`.
+- **Directory creation:** agents do not need to `mkdir` — `Write` creates parent dirs automatically.
+
 ---
 
 ## What not to do
