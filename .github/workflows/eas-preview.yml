@@ -5,6 +5,9 @@ on:
     branches:
       - dev
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   preview:
     name: EAS Preview (iOS)
@@ -20,7 +23,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Setup Expo
         uses: expo/expo-github-action@v8
@@ -29,5 +32,17 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      - name: Check if app is bootstrapped
+        id: bootstrap_check
+        run: |
+          if grep -q '\[APP_SLUG\]' app.json; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Template placeholders still present — skipping EAS build."
+            echo "Run scripts/init.sh to bootstrap a real app before EAS builds will work."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Build iOS preview
+        if: steps.bootstrap_check.outputs.skip == 'false'
         run: eas build --platform ios --profile preview --non-interactive

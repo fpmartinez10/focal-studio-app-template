@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable, KeyboardAvoidingView, Platform } from "react-native";
 import { router } from "expo-router";
 import { Screen } from "@/components/layout/Screen";
 import { Button } from "@/components/ui/Button";
 import { TextInput } from "@/components/ui/TextInput";
 import { useTheme } from "@/hooks/useTheme";
-import { useAuthStore } from "@/store/useAuthStore";
 import { FontSize, FontWeight, Spacing } from "@/theme";
 import { APP_NAME } from "@/constants";
 
@@ -16,11 +15,18 @@ import { APP_NAME } from "@/constants";
 
 export default function LoginScreen() {
   const { colors } = useTheme();
-  const { setUser } = useAuthStore();
+  // const { setUser } = useAuthStore(); // Uncomment when wiring real auth
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const isMountedRef = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   async function handleLogin() {
     setError("");
@@ -30,14 +36,22 @@ export default function LoginScreen() {
     }
     setLoading(true);
     try {
-      // TODO: replace with real auth call
-      // e.g. const user = await signInWithEmailAndPassword(auth, email, password);
-      setUser({ id: "placeholder", email });
-      router.replace("/(tabs)");
-    } catch {
+      // Replace this block with your auth provider's sign-in call, e.g.:
+      // const user = await signInWithEmailAndPassword(auth, email, password);
+      // setUser({ id: user.uid, email: user.email! });
+      throw new Error(
+        `[${APP_NAME}] Auth not wired — replace this block with your real auth provider before shipping.`
+      );
+      // if (!isMountedRef.current) return;
+      // setUser({ id: "placeholder", email });
+      // router.replace("/(tabs)");
+    } catch (err) {
+      if (!isMountedRef.current) return;
+      // Log setup errors visibly in dev; always show a generic message to users.
+      if (err instanceof Error) console.error("[Auth]", err.message);
       setError("Invalid email or password.");
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) setLoading(false);
     }
   }
 

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View, Text, StyleSheet, ScrollView, Pressable, Linking } from "react-native";
 import { router, useFocusEffect } from "expo-router";
-import { useCallback } from "react";
 import { Screen } from "@/components/layout/Screen";
 import { Card } from "@/components/ui/Card";
 import { Toggle } from "@/components/ui/Toggle";
@@ -12,7 +11,7 @@ import { useAuthStore } from "@/store/useAuthStore";
 import { setAnalyticsEnabled, Analytics } from "@/services/analytics";
 import { maybeRequestRating } from "@/services/ratingService";
 import { FontSize, FontWeight, Spacing } from "@/theme";
-import { APP_NAME, APP_VERSION } from "@/constants";
+import { APP_NAME, APP_VERSION, PRIVACY_POLICY_URL, SUPPORT_EMAIL } from "@/constants";
 import type { Theme } from "@/types";
 
 const THEMES: { label: string; value: Theme }[] = [
@@ -21,7 +20,6 @@ const THEMES: { label: string; value: Theme }[] = [
   { label: "System", value: "device" },
 ];
 
-const PRIVACY_POLICY_URL = "https://focalstudio.github.io/privacy";
 
 function Row({ label, onPress }: { label: string; onPress: () => void }) {
   const { colors } = useTheme();
@@ -98,7 +96,7 @@ export default function SettingsScreen() {
           <Divider />
           <Row
             label="Feature Request"
-            onPress={() => Linking.openURL("mailto:focalstudio.apps@gmail.com?subject=Feature Request")}
+            onPress={() => Linking.openURL(`mailto:${SUPPORT_EMAIL}?subject=Feature Request`)}
           />
         </Card>
 

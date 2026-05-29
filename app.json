@@ -2,17 +2,11 @@
   "expo": {
     "name": "[APP_NAME]",
     "slug": "[APP_SLUG]",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "[APP_SLUG]",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "[APP_COLOR]"
-    },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "[APP_ID]",
@@ -39,6 +33,14 @@
       "expo-router",
       "expo-system-ui",
       [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "[APP_COLOR]"
+        }
+      ],
+      [
         "expo-notifications",
         {
           "icon": "./assets/images/icon.png",
@@ -51,6 +53,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "ad58e22c-03a9-49eb-8e59-1a4498ca5f24"
+      }
+    },
+    "owner": "focalstudio"
   }
 }

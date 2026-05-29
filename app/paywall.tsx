@@ -6,9 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { useTheme } from "@/hooks/useTheme";
-import { usePaywallStore } from "@/store/usePaywallStore";
 import { FontSize, FontWeight, Spacing, Radius } from "@/theme";
-import { Analytics } from "@/services/analytics";
 import { APP_NAME } from "@/constants";
 import type { SubscriptionTier } from "@/types";
 
@@ -41,13 +39,17 @@ const TIERS: TierCard[] = [
 
 export default function PaywallScreen() {
   const { colors } = useTheme();
-  const { setSubscription } = usePaywallStore();
-
   function handleSubscribe(tier: SubscriptionTier) {
-    // TODO: call RevenueCat purchasePackage here before calling setSubscription
-    setSubscription(tier);
-    Analytics.subscriptionStarted(tier);
-    router.back();
+    // Wire RevenueCat before enabling this: see src/store/usePaywallStore.ts
+    throw new Error(
+      `[${APP_NAME}] Paywall not wired — integrate RevenueCat purchasePackage before shipping. Attempted tier: ${tier}`
+    );
+    // After wiring RevenueCat, replace the throw above with:
+    // const purchase = await Purchases.purchasePackage(pkg);
+    // const store = usePaywallStore.getState();
+    // store.setSubscription(purchase.customerInfo.activeSubscriptions[0] as SubscriptionTier);
+    // Analytics.subscriptionStarted(tier);
+    // router.back();
   }
 
   function handleRestore() {

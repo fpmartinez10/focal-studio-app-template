@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 permissions:
   pull-requests: write
   contents: read
@@ -37,7 +40,7 @@ jobs:
         run: npm run lint
 
       - name: Test
-        run: npm test
+        run: npm test -- --passWithNoTests=false
 
       - name: Check version is bumped
         id: version_check
