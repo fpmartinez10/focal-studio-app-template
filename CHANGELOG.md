@@ -9,6 +9,10 @@ Versioning: [Semantic Versioning](https://semver.org/)
 
 ## [Unreleased]
 
+---
+
+## [0.4.0] — 2026-05-29
+
 ### CI
 - Add `EXPO_TOKEN` secret to enable EAS Preview builds on push to `dev`
 
