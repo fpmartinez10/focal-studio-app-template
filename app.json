@@ -12,6 +12,7 @@
       "bundleIdentifier": "[APP_ID]",
       "buildNumber": "1",
       "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
         "NSCameraUsageDescription": "Used to take photos within the app.",
         "NSPhotoLibraryUsageDescription": "Used to select photos from your library.",
         "NSUserNotificationUsageDescription": "Used to send you reminders and re-engagement notifications."
