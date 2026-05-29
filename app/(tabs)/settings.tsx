@@ -11,7 +11,7 @@ import { useAuthStore } from "@/store/useAuthStore";
 import { setAnalyticsEnabled, Analytics } from "@/services/analytics";
 import { maybeRequestRating } from "@/services/ratingService";
 import { FontSize, FontWeight, Spacing } from "@/theme";
-import { APP_NAME, APP_VERSION, PRIVACY_POLICY_URL } from "@/constants";
+import { APP_NAME, APP_VERSION, PRIVACY_POLICY_URL, SUPPORT_EMAIL } from "@/constants";
 import type { Theme } from "@/types";
 
 const THEMES: { label: string; value: Theme }[] = [
@@ -96,7 +96,7 @@ export default function SettingsScreen() {
           <Divider />
           <Row
             label="Feature Request"
-            onPress={() => Linking.openURL("mailto:focalstudio.apps@gmail.com?subject=Feature Request")}
+            onPress={() => Linking.openURL(`mailto:${SUPPORT_EMAIL}?subject=Feature Request`)}
           />
         </Card>
 

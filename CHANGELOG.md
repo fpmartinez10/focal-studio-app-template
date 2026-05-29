@@ -9,6 +9,10 @@ Versioning: [Semantic Versioning](https://semver.org/)
 
 ## [Unreleased]
 
+---
+
+## [0.4.0] — 2026-05-29
+
 ### CI
 - Add `EXPO_TOKEN` secret to enable EAS Preview builds on push to `dev`
 
@@ -34,9 +38,13 @@ Versioning: [Semantic Versioning](https://semver.org/)
 - `isMountedRef` guard added to login async flow to prevent state updates after component unmount
 - Obsidian vault path in `scripts/init.sh` now reads `$OBSIDIAN_VAULT_PATH` env var, falling back to `~/Obsidian/Projects` (removes user-specific hardcoded path)
 - `PRIVACY_POLICY_URL` moved from a hardcoded string in `settings.tsx` to a `[PRIVACY_POLICY_URL]` placeholder in `src/constants.ts`
+- `login.tsx` auth error catch: replaced brittle `err.message.includes("Auth not wired")` string-match with `console.error` + generic user-facing message — prevents internal error text leaking to users when real auth is wired up
+- `settings.tsx`: hardcoded `focalstudio.apps@gmail.com` contact replaced with `[SUPPORT_EMAIL]` placeholder exported from `src/constants.ts`
+- `release-review.yml`: added `--passWithNoTests=false` to `npm test` step for consistency with `ci.yml`
 
 ### Added
 - `.eslintrc.json` committed — ESLint rules now consistent across all environments
+- `SUPPORT_EMAIL` placeholder added to `src/constants.ts` — replaces hardcoded contact email in settings screen
 - `AnalyticsEvent` union type on `track()` in `analytics.ts` — typos in event names are caught at compile time
 - `reset()` action on `useOnboardingStore` — enables re-triggering onboarding in tests and dev mode
 - `src/store/__tests__/useAppStore.test.ts` — smoke test for store defaults and mutations
