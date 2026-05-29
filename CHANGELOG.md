@@ -9,6 +9,9 @@ Versioning: [Semantic Versioning](https://semver.org/)
 
 ## [Unreleased]
 
+### Fixed
+- `scripts/init.sh`: reset `package.json`, `app.json`, `src/constants.ts`, and `CHANGELOG.md` to version `0.1.0` during template initialisation so new apps don't inherit the template's release history
+
 ---
 
 ## [0.5.0] — 2026-05-29
