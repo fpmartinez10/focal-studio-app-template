@@ -47,8 +47,9 @@ export default function LoginScreen() {
       // router.replace("/(tabs)");
     } catch (err) {
       if (!isMountedRef.current) return;
-      const isSetupError = err instanceof Error && err.message.includes("Auth not wired");
-      setError(isSetupError ? (err as Error).message : "Invalid email or password.");
+      // Log setup errors visibly in dev; always show a generic message to users.
+      if (err instanceof Error) console.error("[Auth]", err.message);
+      setError("Invalid email or password.");
     } finally {
       if (isMountedRef.current) setLoading(false);
     }
